@@ -8,30 +8,28 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Role, Article } from './index';
+import { Role } from './index';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  public id?: number;
+  id: number;
 
   @Column({ unique: true })
-  @ApiProperty()
-  public email: string;
+  email: string;
 
   @Column()
-  @ApiProperty()
-  public name: string;
+  name: string;
 
   @Column()
   @Exclude()
-  public password: string;
+  password: string;
 
   @Column({
     nullable: true,
   })
   @Exclude()
-  public currentHashedRefreshToken?: string;
+  currentHashedRefreshToken?: string;
 
   @ManyToMany(() => Role)
   @JoinTable({
@@ -46,7 +44,4 @@ export class User {
     },
   })
   roles: Role[];
-
-  @OneToMany(() => Article, (article: Article) => article.createdBy)
-  public articles: Article[];
 }

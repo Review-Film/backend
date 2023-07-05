@@ -9,16 +9,16 @@ import {
 @Entity()
 export class Log {
   @PrimaryGeneratedColumn()
-  public id: number;
+  id: number;
 
   @Column({ nullable: true })
-  public context: string;
+  context: string;
 
   @Column()
-  public message: string;
+  message: string;
 
   @Column()
-  public level: string;
+  level: string;
 
   @CreateDateColumn()
   creationDate: Date;

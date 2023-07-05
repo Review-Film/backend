@@ -8,13 +8,13 @@ import { LoggerModule } from './modules/log/logs.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/user/users.module';
-import { ArticleModule } from './modules/article/article.module';
 
 import LoggerMiddleware from './configs/middlewares/logger.middleware';
 import { AllExceptionsFilter } from './configs/filters/catchError';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MovieModule } from './modules/movie/movie.module';
 
 @Module({
   providers: [
@@ -49,7 +49,7 @@ import { AppService } from './app.service';
     DatabaseModule,
     AuthModule,
     UsersModule,
-    ArticleModule,
+    MovieModule,
   ],
   controllers: [AppController],
 })

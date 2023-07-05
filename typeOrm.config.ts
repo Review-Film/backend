@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
-import { Article, Role, Topic, User } from './src/entities';
+import { Role, User } from './src/entities';
 
 config();
 
@@ -14,7 +14,7 @@ export default new DataSource({
   username: configService.get('POSTGRES_USER'),
   password: configService.get('POSTGRES_PASSWORD'),
   database: configService.get('POSTGRES_DB'),
-  entities: [User, Role, Article, Topic],
+  entities: [User, Role],
   migrations: ['src/migrations/**/*{.js,.ts}'],
   subscribers: ['src/subscriber/**/*{.js,.ts}'],
 });

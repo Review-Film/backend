@@ -9,7 +9,7 @@ export enum Roles {
 @Entity()
 export class Role {
   @PrimaryGeneratedColumn()
-  public id?: number;
+  id: number;
 
   @Column({
     type: 'enum',
@@ -17,5 +17,5 @@ export class Role {
     default: Roles.MEMBER,
     unique: true,
   })
-  public name: string;
+  name: string;
 }

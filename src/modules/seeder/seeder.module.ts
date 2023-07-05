@@ -2,11 +2,10 @@ import * as Joi from '@hapi/joi';
 import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Article, Role, Topic, User } from '../../entities/';
+import { Role, User } from '../../entities/';
 import { DatabaseModule } from '../database/database.module';
 import { SeederService } from './seeder.service';
 import { SearchModule } from '../search/search.module';
-import { ArticleModule } from '../article/article.module';
 
 @Module({
   imports: [
@@ -31,8 +30,7 @@ import { ArticleModule } from '../article/article.module';
     }),
     DatabaseModule,
     SearchModule,
-    TypeOrmModule.forFeature([User, Role, Article, Topic]),
-    ArticleModule,
+    TypeOrmModule.forFeature([User, Role]),
   ],
   providers: [SeederService, Logger],
 })
